@@ -176,9 +176,9 @@ h6 {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 4px solid rgb(145, 15, 15);
-  border-top: 4px solid #778a7a;
-  border-right: 4px solid #862679;
+  border: 4px solid lightgray;
+  border-top: 4px solid #11B826;
+  border-right: 4px solid #11B826;
   transform: rotate(45deg);
 }
 
