@@ -1,0 +1,282 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  font-family: sf pro display, sans-serif;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+#root,
+#__next {
+  isolation: isolate;
+}
+@font-face {
+  font-family: sf pro display;
+  font-style: normal;
+  font-weight: 400;
+  src: local("SF Pro Display"),
+    url(https://fonts.cdnfonts.com/s/59278/SFPRODISPLAYREGULAR.woff)
+      format("woff");
+}
+@font-face {
+  font-family: sf pro display;
+  font-style: italic;
+  font-weight: 100;
+  src: local("SF Pro Display"),
+    url(https://fonts.cdnfonts.com/s/59278/SFPRODISPLAYULTRALIGHTITALIC.woff)
+      format("woff");
+}
+@font-face {
+  font-family: sf pro display;
+  font-style: italic;
+  font-weight: 200;
+  src: local("SF Pro Display"),
+    url(https://fonts.cdnfonts.com/s/59278/SFPRODISPLAYTHINITALIC.woff)
+      format("woff");
+}
+@font-face {
+  font-family: sf pro display;
+  font-style: italic;
+  font-weight: 300;
+  src: local("SF Pro Display"),
+    url(https://fonts.cdnfonts.com/s/59278/SFPRODISPLAYLIGHTITALIC.woff)
+      format("woff");
+}
+@font-face {
+  font-family: sf pro display;
+  font-style: normal;
+  font-weight: 500;
+  src: local("SF Pro Display"),
+    url(https://fonts.cdnfonts.com/s/59278/SFPRODISPLAYMEDIUM.woff)
+      format("woff");
+}
+@font-face {
+  font-family: sf pro display;
+  font-style: italic;
+  font-weight: 600;
+  src: local("SF Pro Display"),
+    url(https://fonts.cdnfonts.com/s/59278/SFPRODISPLAYSEMIBOLDITALIC.woff)
+      format("woff");
+}
+@font-face {
+  font-family: sf pro display;
+  font-style: normal;
+  font-weight: 700;
+  src: local("SF Pro Display"),
+    url(https://fonts.cdnfonts.com/s/59278/SFPRODISPLAYBOLD.woff) format("woff");
+}
+@font-face {
+  font-family: sf pro display;
+  font-style: italic;
+  font-weight: 800;
+  src: local("SF Pro Display"),
+    url(https://fonts.cdnfonts.com/s/59278/SFPRODISPLAYHEAVYITALIC.woff)
+      format("woff");
+}
+@font-face {
+  font-family: sf pro display;
+  font-style: italic;
+  font-weight: 900;
+  src: local("SF Pro Display"),
+    url(https://fonts.cdnfonts.com/s/59278/SFPRODISPLAYBLACKITALIC.woff)
+      format("woff");
+}
+
+.main {
+  background: url(./assets//GTAVPC_7\ 1.png);
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+
+/* .container {
+  background: lightsalmon;
+  width: 300px;
+  height: 300px;
+  position: relative;
+}
+
+.container div {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 5px solid transparent;
+  border-top: 5px solid green;
+  border-right: 5px solid green;
+      transform: rotate(45deg);
+}
+*/ 
+
+
+.container-status {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50px;
+  gap: 40px;
+  padding-top: 30px;
+  padding-left: 30px;
+}
+
+ /* .container-img-status div {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 3px solid lightgray;
+  border-top: 3px solid #11B826;
+  border-right: 3px solid #11B826;
+  transform: rotate(45deg);
+} */
+
+
+.container-img-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-img-status div {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 4px solid lightgray;
+  border-top: 4px solid #11B826;
+  border-right: 4px solid #11B826;
+  transform: rotate(45deg);
+}
+
+.container-img-status img {
+  display: inline;
+} 
+
+
+
+
+/* .test {
+  padding-bottom: 25px;
+  margin-bottom: 10px;
+  background: rgb(65, 22, 206);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+} */
+
+.container-vehicule-indicator {
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+  width: 200px;
+}
+
+.container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+.container-speed {
+  position: relative;
+}
+
+.container-speed::after {
+  content: "";
+  position: absolute;
+  height: 53px;
+  width: 3px;
+  background: rgba(183, 180, 181, 1);
+  top: -5px;
+  right: -13px;
+}
+
+.container-speed p:nth-child(1) {
+  color: #ffffff;
+  font-size: 42px;
+  font-weight: 800;
+  position: relative;
+}
+
+.container-speed p:nth-child(1)::before {
+  content: "KM/H";
+  position: absolute;
+  top: -3px;
+  right: 0;
+  color: rgba(191, 191, 191, 1);
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.container-info-lever-gear {
+  padding-bottom: 12px;
+}
+
+.container-info-lever-gear p:nth-child(1) {
+  color: #42ca68;
+  font-size: 26px;
+  font-weight: 800;
+}
+
+.container-img-pourcent {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.container-img-pourcent p {
+  color: #ffffff;
+  font-weight: 400;
+}
+
+.container-info-car {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.container-img {
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+}
+
+/*
+
+
