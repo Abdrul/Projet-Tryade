@@ -45,17 +45,17 @@
       </div>
       <div class="container-info-car">
         <div class="container-img">
-          <svg id="right-arrow" width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M0 5.50002C0 5.71542 0.090615 5.96781 0.323131 6.18498L5.05427 10.5836C5.36595 10.8722 5.6244 11 5.94523 11C6.40658 11 6.74465 10.6607 6.74465 10.2101V7.96388H11.537C12.4596 7.96388 13 7.44376 13 6.54164V4.47495C13 3.5728 12.4596 3.05057 11.537 3.05057H6.74465V0.815213C6.74465 0.364671 6.40658 0 5.93544 0C5.61889 0 5.39691 0.128457 5.05427 0.446524L0.32098 4.81123C0.0846376 5.03326 0 5.27549 0 5.50002Z">
-              <animate attributeName="fill" values="#B7B4B5;#42CA68;#42CA68;#B7B4B5;" dur="0.4s" repeatCount="indefinite" />
+              <animate id="left-arrow-animate" attributeName="fill" values="#B7B4B5" dur="0.6s" repeatCount="indefinite" />
             </path>
           </svg>
-          <svg id="left-arrow" width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M13 5.50002C13 5.71542 12.9094 5.96781 12.6769 6.18498L7.94573 10.5836C7.63405 10.8722 7.3756 11 7.05477 11C6.59342 11 6.25535 10.6607 6.25535 10.2101V7.96388H1.46301C0.54036 7.96388 9.53674e-07 7.44376 9.53674e-07 6.54164V4.47495C9.53674e-07 3.5728 0.54036 3.05057 1.46301 3.05057H6.25535V0.815213C6.25535 0.364671 6.59342 0 7.06456 0C7.38111 0 7.60309 0.128457 7.94573 0.446524L12.679 4.81123C12.9154 5.03326 13 5.27549 13 5.50002Z"
               fill="#B7B4B5">
-              <animate attributeName="fill" values="#B7B4B5;#42CA68;#42CA68;#B7B4B5;" dur="0.4s" repeatCount="indefinite" />
+              <animate id="right-arrow-animate" attributeName="fill" values="#B7B4B5" dur="0.4s" repeatCount="indefinite" />
             </path>
           </svg>
 
@@ -68,8 +68,8 @@
 
     <!-- Action buttons for the car -->
     <div style="position:absolute;right:20px;">
-      <button id="left-arrow-button">Left</button>
-      <button id="right-arrow-button">Right</button>
+      <button id="leftArrowButton" value="left">Left</button>
+      <button id="rightArrowButton" value="right">Right</button>
     </div>
   </main>
 </body>
