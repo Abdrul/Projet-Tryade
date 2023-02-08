@@ -1,11 +1,14 @@
-window.onload = function () {
+document.addEventListener("DOMContentLoaded", function(event) { 
 
     //Car ATH
-    //The turn signals
-    //The left-right action buttons
+    //The car action buttons
     const leftArrowButton = document.getElementById("leftArrowButton");
     const rightArrowButton = document.getElementById("rightArrowButton");
-
+    const lightButton = document.getElementById("lightSignal");
+    const engineButton = document.getElementById("engineSignal");
+    const seatButton = document.getElementById("seatSignal");
+    
+    //The turn signals
     //The animate tags of the left-right directional arrows
     const rightArrowAnimate = document.getElementById('right-arrow-animate');
     const leftArrowAnimate = document.getElementById('left-arrow-animate');
@@ -41,10 +44,35 @@ window.onload = function () {
     leftArrowButton.addEventListener('click', clignotte);
     rightArrowButton.addEventListener('click', clignotte);
 
-    
+
+
+    //The light, engine and seat signals
+    function onOff(){
+        value = this.getAttribute('value');
+        value = value + '-signal';
+
+        children = document.getElementById(value).children;
+
+        if(children[0].getAttribute('fill') === '#B7B4B5'){
+            for(i=0;i<children.length;i++){
+                children[i].setAttribute('fill','#42CA68')
+            }
+        }else{
+            for(i=0;i<children.length;i++){
+                children[i].setAttribute('fill','#B7B4B5')
+            }
+        }
+    }
+
+    lightButton.addEventListener('click', onOff);
+    engineButton.addEventListener('click', onOff);
+    seatButton.addEventListener('click', onOff);
+
+
 
     //End of Car ATH
-}
+});
+
 
 
 
