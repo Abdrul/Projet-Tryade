@@ -4,30 +4,33 @@ document.addEventListener("DOMContentLoaded", function(event) {
     //The car action buttons
     const leftArrowButton = document.getElementById("leftArrowButton");
     const rightArrowButton = document.getElementById("rightArrowButton");
+    const warningButton = document.getElementById("warningSignal");
     const lightButton = document.getElementById("lightSignal");
     const engineButton = document.getElementById("engineSignal");
     const seatButton = document.getElementById("seatSignal");
+
+    //Warning on/off ?
+    var warningOnOff = false;
     
     //The turn signals
     //The animate tags of the left-right directional arrows
     const rightArrowAnimate = document.getElementById('right-arrow-animate');
     const leftArrowAnimate = document.getElementById('left-arrow-animate');
 
-
     function clignotte() {
         value = this.getAttribute('value');
-        if (value === "left") {
+        if (value === "left" && warningOnOff == false) {
             //shutdown the second turn signal
             rightArrowAnimate.setAttribute('values', '#B7B4B5');
 
             //Switch on/off
             var attr = leftArrowAnimate.getAttribute('values');
-            if (attr === "#B7B4B5") {
+            if (attr === "#B7B4B5" && warningOnOff === false) {
                 leftArrowAnimate.setAttribute('values', '#B7B4B5;#42CA68;#42CA68;#B7B4B5;');
-            } else {
+            } else{
                 leftArrowAnimate.setAttribute('values', '#B7B4B5');
             }
-        } else {
+        } else if(warningOnOff == false) {
             //shutdown the second turn signal
             leftArrowAnimate.setAttribute('values', '#B7B4B5');
             
@@ -44,6 +47,24 @@ document.addEventListener("DOMContentLoaded", function(event) {
     leftArrowButton.addEventListener('click', clignotte);
     rightArrowButton.addEventListener('click', clignotte);
 
+
+    //Warnings signal
+    function warning(){
+
+        var attrL = leftArrowAnimate.getAttribute('values');
+        var attrR = rightArrowAnimate.getAttribute('values');
+            if (attrL === "#B7B4B5" || attrR === "#B7B4B5" ) {
+                leftArrowAnimate.setAttribute('values', '#B7B4B5;#42CA68;#42CA68;#B7B4B5;');
+                rightArrowAnimate.setAttribute('values', '#B7B4B5;#42CA68;#42CA68;#B7B4B5;');
+                warningOnOff = true;
+            } else {
+                leftArrowAnimate.setAttribute('values', '#B7B4B5');
+                rightArrowAnimate.setAttribute('values', '#B7B4B5');
+                warningOnOff = false;
+            }
+    }
+
+    warningButton.addEventListener('click', warning);
 
 
     //The light, engine and seat signals
