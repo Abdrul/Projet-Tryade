@@ -14,12 +14,21 @@ document.addEventListener("DOMContentLoaded", function(event) {
     const speedUpButton = document.getElementById("speedUp");
     const speedDownButton = document.getElementById("speedDown");
 
-    
+    //Gazoline
+    const gazolineUpButton = document.getElementById("gazolineUp");
+    const gazolineDownButton = document.getElementById("gazolineDown");
+
+
+
+
+
     //general variables
     //Warning on/off ?
     var warningOnOff = false;
     //speed variable
     var speed = 0;
+    //gazoline variable
+    var lvlGazoline = 0;
 
 
 
@@ -106,22 +115,41 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 
     //Car speed up or speed down
-    var containerSpeed = document.querySelector('.container-speed p');
+    const containerSpeed = document.querySelector('.container-speed p');
     containerSpeed.innerHTML = speed;
     
     speedUpButton.addEventListener('click', function(){
         speed++;
         containerSpeed.textContent = speed;
-        console.log(speed);
-    })
+    });
     
     speedDownButton.addEventListener('click', function(){
         if(speed >= 1 ){
             speed--;
             containerSpeed.textContent = speed;
-            console.log(speed);
         }
-    })
+    });
+
+
+    //The level of gasoline
+    const containerGazoline = document.querySelector('.container-img-pourcent p');
+    containerGazoline.innerHTML = lvlGazoline + '%';
+
+    gazolineUpButton.addEventListener('click', function(){
+        if(lvlGazoline < 100){
+            lvlGazoline++;
+            containerGazoline.textContent = lvlGazoline + '%';
+        }
+    });
+
+    gazolineDownButton.addEventListener('click', function(){
+        if(lvlGazoline >= 1){
+            lvlGazoline--;
+            containerGazoline.textContent = lvlGazoline + '%';
+        }
+    });
+
+
     
 
 
