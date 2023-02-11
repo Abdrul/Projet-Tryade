@@ -18,6 +18,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
     const gazolineUpButton = document.getElementById("gazolineUp");
     const gazolineDownButton = document.getElementById("gazolineDown");
 
+    //Gearbox
+    const gearboxUpButton = document.getElementById("gearboxUp");
+    const gearboxDownButton = document.getElementById("gearboxDown");
+
 
 
 
@@ -29,6 +33,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
     var speed = 0;
     //gazoline variable
     var lvlGazoline = 0;
+    //Gearbox variable
+    var lvlGearbox = 0;
 
 
 
@@ -146,6 +152,23 @@ document.addEventListener("DOMContentLoaded", function(event) {
         if(lvlGazoline >= 1){
             lvlGazoline--;
             containerGazoline.textContent = lvlGazoline + '%';
+        }
+    });
+
+
+    //The gearbox
+    const containerGearbox = document.querySelector('.container-info-lever-gear p');
+    containerGearbox.innerHTML = lvlGearbox;
+
+    gearboxUpButton.addEventListener('click', function(){
+        lvlGearbox++;
+        containerGearbox.textContent = lvlGearbox;
+    });
+    
+    gearboxDownButton.addEventListener('click', function(){
+        if(lvlGearbox >= 1){
+            lvlGearbox--;
+            containerGearbox.textContent = lvlGearbox;
         }
     });
 
