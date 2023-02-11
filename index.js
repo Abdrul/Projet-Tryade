@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     //Car ATH
     //The car action buttons
+    //The car signals
     const leftArrowButton = document.getElementById("leftArrowButton");
     const rightArrowButton = document.getElementById("rightArrowButton");
     const warningButton = document.getElementById("warningSignal");
@@ -9,8 +10,20 @@ document.addEventListener("DOMContentLoaded", function(event) {
     const engineButton = document.getElementById("engineSignal");
     const seatButton = document.getElementById("seatSignal");
 
+    //car speedometer
+    const speedUpButton = document.getElementById("speedUp");
+    const speedDownButton = document.getElementById("speedDown");
+
+    
+    //general variables
     //Warning on/off ?
     var warningOnOff = false;
+    //speed variable
+    var speed = 0;
+
+
+
+
     
     //The turn signals
     //The animate tags of the left-right directional arrows
@@ -89,6 +102,27 @@ document.addEventListener("DOMContentLoaded", function(event) {
     engineButton.addEventListener('click', onOff);
     seatButton.addEventListener('click', onOff);
 
+
+
+
+    //Car speed up or speed down
+    var containerSpeed = document.querySelector('.container-speed p');
+    containerSpeed.innerHTML = speed;
+    
+    speedUpButton.addEventListener('click', function(){
+        speed++;
+        containerSpeed.textContent = speed;
+        console.log(speed);
+    })
+    
+    speedDownButton.addEventListener('click', function(){
+        if(speed >= 1 ){
+            speed--;
+            containerSpeed.textContent = speed;
+            console.log(speed);
+        }
+    })
+    
 
 
     //End of Car ATH
