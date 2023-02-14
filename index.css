@@ -169,10 +169,6 @@ h6 {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.container-img-status div {
-  position: absolute;
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -182,8 +178,15 @@ h6 {
   transform: rotate(45deg);
 }
 
+.container-img-status:hover{
+  cursor: ew-resize;
+}
+
+
+
 .container-img-status img {
-  display: inline;
+  transform: rotate(-45deg);
+  z-index: -1;
 } 
 
 
