@@ -1,100 +1,97 @@
-// Récupérer les éléments HTML
-const heart = document.getElementById('heart-status');
-const shield = document.getElementById('shield-status');
-const food = document.getElementById('food-status');
-const thirst = document.getElementById('thirst-status');
+const increase = document.querySelectorAll('.increase');
+const decrease = document.querySelectorAll('.decrease');
 
-// Ajouter des écouteurs d'événements de souris à chaque élément
-heart?.addEventListener('mousedown', dragStart);
-shield?.addEventListener('mousedown', dragStart);
-food?.addEventListener('mousedown', dragStart);
-thirst?.addEventListener('mousedown', dragStart);
+const circles = document.querySelectorAll('.another-circle');
 
-// Définir les variables de position
-let heartPosition = { x: 0, y: 0 };
-let shieldPosition = { x: 0, y: 0 };
-let foodPosition = { x: 0, y: 0 };
-let thirstPosition = { x: 0, y: 0 };
+increase.forEach((up, index) => {
+  up.addEventListener('click', () => {
+    let test = parseInt(circles[index].getAttribute('data-stroke'));
+    if (test > 0) {
+      test = test - 5;
+      circles[index].style.strokeDashoffset = test;
+      circles[index].setAttribute('data-stroke', test);
+    }
+  });
+});
 
-// Définir les variables de déplacement
-let heartDrag = false;
-let shieldDrag = false;
-let foodDrag = false;
-let thirstDrag = false;
+decrease.forEach((down, index) => {
+  down.addEventListener('click', () => {
+    let test = parseInt(circles[index].getAttribute('data-stroke'));
+    if (test < 125) {
+      test = test + 5;
+      circles[index].style.strokeDashoffset = test;
+      circles[index].setAttribute('data-stroke', test);
+    }
+  });
+});
 
-// Définir les variables de position de la souris
-let mouseX = 0;
-let mouseY = 0;
+/* ************************************ DRAG *************************************** */
+// Sélectionne tous les éléments ayant la classe "draggable"
+const draggableElements = document.querySelectorAll('.draggable');
 
-// Définir les variables de position de l'élément
-let elementX = 0;
-let elementY = 0;
+// Ajoute un écouteur d'événement "mousedown" à chaque élément draggable
 
-function dragStart(e) {
-  // Définir la position de la souris
-  mouseX = e.clientX;
-  mouseY = e.clientY;
+draggableElements.forEach((element) => {
+  element.addEventListener('mousedown', startDrag);
+});
 
-  // Définir la position de l'élément
-  elementX = this.offsetLeft;
-  elementY = this.offsetTop;
+function startDrag(event) {
+  // event.preventDefault();
+  // event.stopPropagation();
+  // Empêche le clic droit de déclencher le drag and drop
+  if (event.button !== 0) return;
 
-  // Définir la variable de déplacement
-  if (this.id === 'heart-status') {
-    heartDrag = true;
-  } else if (this.id === 'shield-status') {
-    shieldDrag = true;
-  } else if (this.id === 'food-status') {
-    foodDrag = true;
-  } else if (this.id === 'thirst-status') {
-    thirstDrag = true;
-  }
-}
-
-// Ajouter un écouteur d'événements de souris au document
-document.addEventListener('mousemove', drag);
-document.addEventListener('mouseup', dragEnd);
-
-function drag(e) {
-  // Définir la nouvelle position de la souris
-  mouseX = e.clientX;
-  mouseY = e.clientY;
-
-  // Définir la nouvelle position de l'élément
-  if (heartDrag) {
-    heartPosition.x = mouseX - elementX;
-    heartPosition.y = mouseY - elementY;
-  } else if (shieldDrag) {
-    shieldPosition.x = mouseX - elementX;
-    shieldPosition.y = mouseY - elementY;
-  } else if (foodDrag) {
-    foodPosition.x = mouseX - elementX;
-    foodPosition.y = mouseY - elementY;
-  } else if (thirstDrag) {
-    thirstPosition.x = mouseX - elementX;
-    thirstPosition.y = mouseY - elementY;
+  let element = event.target;
+  while (!element.classList.contains('draggable')) {
+    element = element.parentElement;
   }
 
-  // Définir la nouvelle position de l'élément
-  if (heartDrag) {
-    if (heart)
-      heart.style.transform = `translate(${heartPosition.x}px, ${heartPosition.y}px) rotate(45deg)`;
-  } else if (shieldDrag) {
-    if (shield)
-      shield.style.transform = `translate(${shieldPosition.x}px, ${shieldPosition.y}px) rotate(45deg)`;
-  } else if (foodDrag) {
-    if (food)
-      food.style.transform = `translate(${foodPosition.x}px, ${foodPosition.y}px) rotate(45deg)`;
-  } else if (thirstDrag) {
-    if (thirst)
-      thirst.style.transform = `translate(${thirstPosition.x}px, ${thirstPosition.y}px) rotate(45deg)`;
-  }
-}
+  console.log(element);
+  // Définit le style CSS "position: absolute" pour positionner l'élément librement
+  element.style.position = 'absolute';
 
-function dragEnd() {
-  // Définir la variable de déplacement
-  heartDrag = false;
-  shieldDrag = false;
-  foodDrag = false;
-  thirstDrag = false;
+  // Stocke l'élément sélectionné
+  let selectedElement = element;
+
+  // Calcule les distances entre le clic de la souris et le bord de l'élément
+  let offsetLeft = event.clientX - element.offsetLeft;
+  let offsetTop = event.clientY - element.offsetTop;
+
+  // Ajoute un écouteur d'événement "mousemove" à la fenêtre pour suivre les mouvements de la souris
+  window.addEventListener('mousemove', dragElement);
+
+  // Fonction pour déplacer l'élément en fonction des mouvements de la souris
+  /**
+   *
+   * @param {MouseEvent} event
+   */
+  function dragElement(event) {
+    // Calcule la nouvelle position de l'élément en fonction de la distance parcourue par la souris
+    let newLeft = event.clientX - offsetLeft;
+    let newTop = event.clientY - offsetTop;
+
+    // Si l'élément sort de la fenêtre, on le bloque
+    if (newLeft < 0) newLeft = 0;
+    if (newTop < 0) newTop = 0;
+    if (
+      newLeft >
+      window.innerWidth /* Storing the element that is being dragged. */ -
+        selectedElement.offsetWidth
+    ) {
+      newLeft = window.innerWidth - selectedElement.offsetWidth;
+    }
+    if (newTop > window.innerHeight - selectedElement.offsetHeight) {
+      newTop = window.innerHeight - selectedElement.offsetHeight;
+    }
+
+    // Déplace l'élément en modifiant ses propriétés CSS "left" et "top"
+    selectedElement.style.left = newLeft + 'px';
+    selectedElement.style.top = newTop + 'px';
+  }
+
+  // Ajoute un écouteur d'événement "mouseup" à la fenêtre pour détecter quand l'utilisateur relâche le clic de la souris
+  window.addEventListener('mouseup', () => {
+    // Supprime l'écouteur d'événement "mousemove" de la fenêtre pour arrêter le déplacement
+    window.removeEventListener('mousemove', dragElement);
+  });
 }

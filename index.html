@@ -12,40 +12,154 @@
       rel="stylesheet"
       href="index.css" />
     <title>Document</title>
-    <script
-      src="index.js"
-      defer></script>
   </head>
   <body>
     <main class="main">
-      <div class="container-status">
-        <div
-          class="container-img-status"
-          id="heart-status">
+      <div class="draggable">
+        <div class="status">
+          <svg>
+            <circle
+              class="another-circle"
+              cx="75"
+              cy="25"
+              r="20"
+              id="circle1"
+              stroke="green"
+              stroke-width="7"
+              fill="transparent"
+              transform="rotate(-90 50 50)"
+              data-stroke="125" />
+            <circle
+              id="test"
+              cx="75"
+              cy="25"
+              r="20"
+              stroke="grey"
+              stroke-width="7"
+              fill="transparent"
+              transform="rotate(-90 50 50)" />
+          </svg>
           <img
+            class="img-status"
             src="./assets/heart.svg"
-            alt="" />
+            alt="img_coeur"
+            width="15px"
+            height="15px" />
         </div>
-        <div
-          class="container-img-status"
-          id="shield-status">
-          <img
-            src="./assets/shield.svg"
-            alt="" />
+        <div class="increase-decrease-container">
+          <button class="increase">Augmenter</button>
+          <button class="decrease">Diminuer</button>
         </div>
-        <div
-          class="container-img-status"
-          id="food-status">
+      </div>
+
+      <div class="draggable">
+        <div class="status">
+          <svg>
+            <circle
+              class="another-circle"
+              cx="75"
+              cy="25"
+              r="20"
+              id="circle1"
+              stroke="green"
+              stroke-width="7"
+              fill="transparent"
+              transform="rotate(-90 50 50)"
+              data-stroke="125" />
+            <circle
+              id="test"
+              cx="75"
+              cy="25"
+              r="20"
+              stroke="grey"
+              stroke-width="7"
+              fill="transparent"
+              transform="rotate(-90 50 50)" />
+          </svg>
           <img
+            class="img-status"
             src="./assets/food.svg"
-            alt="" />
+            alt="img_food"
+            width="15px"
+            height="15px" />
         </div>
-        <div
-          class="container-img-status"
-          id="thirst-status">
+        <div class="increase-decrease-container">
+          <button class="increase">Augmenter</button>
+          <button class="decrease">Diminuer</button>
+        </div>
+      </div>
+
+      <div class="draggable">
+        <div class="status">
+          <svg>
+            <circle
+              class="another-circle"
+              cx="75"
+              cy="25"
+              r="20"
+              id="circle1"
+              stroke="green"
+              stroke-width="7"
+              fill="transparent"
+              transform="rotate(-90 50 50)"
+              data-stroke="125" />
+            <circle
+              id="test"
+              cx="75"
+              cy="25"
+              r="20"
+              stroke="grey"
+              stroke-width="7"
+              fill="transparent"
+              transform="rotate(-90 50 50)" />
+          </svg>
           <img
+            class="img-status"
+            src="./assets/shield.svg"
+            alt="img_shield"
+            width="15px"
+            height="15px" />
+        </div>
+        <div class="increase-decrease-container">
+          <button class="increase">Augmenter</button>
+          <button class="decrease">Diminuer</button>
+        </div>
+      </div>
+
+      <div class="draggable">
+        <div class="status">
+          <svg>
+            <circle
+              class="another-circle"
+              cx="75"
+              cy="25"
+              r="20"
+              id="circle1"
+              stroke="green"
+              stroke-width="7"
+              fill="transparent"
+              transform="rotate(-90 50 50)"
+              data-stroke="125" />
+            <circle
+              id="test"
+              cx="75"
+              cy="25"
+              r="20"
+              stroke="grey"
+              stroke-width="7"
+              fill="transparent"
+              transform="rotate(-90 50 50)" />
+          </svg>
+          <img
+            class="img-status"
             src="./assets/thirst.svg"
-            alt="" />
+            alt="img_thirst"
+            width="15px"
+            height="15px" />
+        </div>
+        <div class="increase-decrease-container">
+          <button class="increase">Augmenter</button>
+          <button class="decrease">Diminuer</button>
         </div>
       </div>
 
@@ -86,19 +200,5 @@
       </div>
     </main>
   </body>
+  <script src="index.js"></script>
 </html>
-
-<!-- <div class="container-speed-type">
-          <div class="vehicule-km">
-            <span>KM/H</span>
-            <p>192</p>
-          </div>
-
-          <div class="vehicule-type">
-            <p>3</p>
-            <div class="gasoil-electrik-vehicule">
-              <img src="./assets/gasoil.svg" alt="gasoil" />
-              <span>100%</span>
-            </div>
-          </div>
-        </div> -->

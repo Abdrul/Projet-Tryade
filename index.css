@@ -121,66 +121,137 @@ h6 {
   position: relative;
 }
 
-
-/* .container {
-  background: lightsalmon;
-  width: 300px;
-  height: 300px;
-  position: relative;
+.draggable {
+ display: flex;
+ flex-direction: column;
+ width: fit-content;
+ 
 }
 
-.container div {
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  border: 5px solid transparent;
-  border-top: 5px solid green;
-  border-right: 5px solid green;
-      transform: rotate(45deg);
-}
-*/ 
-
-
-.container-status {
+.status{
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 50px;
-  gap: 40px;
-  padding-top: 30px;
-  padding-left: 30px;
+  justify-content: center;
+  height: 75px;
 }
 
- /* .container-img-status div {
+
+
+svg {
+  height: 50px;
+  width: 50px;
+}
+#test{
+  opacity: 0.4;
+}
+
+.another-circle {
+  cursor:pointer;
+  stroke-dasharray: 125;
+  stroke-dashoffset: 125;
+  transition: stroke-dashoffset 1000ms ease;
+}
+
+.img-status{
   position: absolute;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 3px solid lightgray;
-  border-top: 3px solid #11B826;
-  border-right: 3px solid #11B826;
-  transform: rotate(45deg);
-} */
+  bottom: 29px;
+}
 
+.increase-decrease-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
 
-.container-img-status {
+}
+
+button {
+  width: 100px;
+}
+
+.container-vehicule-indicator {
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+  width: 200px;
+}
+
+.container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+.container-speed {
+  position: relative;
+}
+
+.container-speed::after {
+  content: "";
+  position: absolute;
+  height: 53px;
+  width: 3px;
+  background: rgba(183, 180, 181, 1);
+  top: -5px;
+  right: -13px;
+}
+
+.container-speed p:nth-child(1) {
+  color: #ffffff;
+  font-size: 42px;
+  font-weight: 800;
+  position: relative;
+}
+
+.container-speed p:nth-child(1)::before {
+  content: "KM/H";
+  position: absolute;
+  top: -3px;
+  right: 0;
+  color: rgba(191, 191, 191, 1);
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.container-info-lever-gear {
+  padding-bottom: 12px;
+}
+
+.container-info-lever-gear p:nth-child(1) {
+  color: #42ca68;
+  font-size: 26px;
+  font-weight: 800;
+}
+
+.container-img-pourcent {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 4px solid lightgray;
-  border-top: 4px solid #11B826;
-  border-right: 4px solid #11B826;
-  transform: rotate(45deg);
+  gap: 5px;
 }
 
-.container-img-status:hover{
-  cursor: ew-resize;
+.container-img-pourcent p {
+  color: #ffffff;
+  font-weight: 400;
 }
+
+.container-info-car {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.container-img {
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+}
+
 
 
 
