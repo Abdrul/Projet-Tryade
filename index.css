@@ -158,6 +158,7 @@ svg {
   stroke-dasharray: 125;
   stroke-dashoffset: 125;
   transition: stroke-dashoffset 1000ms ease;
+  stroke-linecap: round;
 }
 
 button {
