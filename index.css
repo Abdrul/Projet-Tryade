@@ -260,6 +260,7 @@ h6 {
   display: flex;
   align-items: center;
   gap: 5px;
+  width: 55px;
 }
 
 .container-img-pourcent p {

@@ -27,14 +27,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 
     //general variables
-    //Warning on/off ?
-    var warningOnOff = false;
+
     //speed variable
     var speed = 0;
     //gazoline variable
     var lvlGazoline = 0;
     //Gearbox variable
     var lvlGearbox = 0;
+    //Warning variable
+    var warningOnOff = false;
 
 
 
@@ -47,18 +48,23 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     function clignotte() {
         value = this.getAttribute('value');
-        if (value === "left" && warningOnOff == false) {
+        if (value === "left") {
             //shutdown the second turn signal
             rightArrowAnimate.setAttribute('values', '#B7B4B5');
 
             //Switch on/off
             var attr = leftArrowAnimate.getAttribute('values');
-            if (attr === "#B7B4B5" && warningOnOff === false) {
+            if (attr === "#B7B4B5") {
                 leftArrowAnimate.setAttribute('values', '#B7B4B5;#42CA68;#42CA68;#B7B4B5;');
-            } else{
+            }else if(attr === "#B7B4B5;#42CA68;#42CA68;#B7B4B5;" && warningOnOff == true){
+                leftArrowAnimate.setAttribute('values', '#B7B4B5;#42CA68;#42CA68;#B7B4B5;');
+                rightArrowAnimate.setAttribute('values', '#B7B4B5');
+                warningOnOff = false;
+
+            }else{
                 leftArrowAnimate.setAttribute('values', '#B7B4B5');
             }
-        } else if(warningOnOff == false) {
+        }else{
             //shutdown the second turn signal
             leftArrowAnimate.setAttribute('values', '#B7B4B5');
             
@@ -66,6 +72,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
             var attr = rightArrowAnimate.getAttribute('values');
             if (attr === "#B7B4B5") {
                 rightArrowAnimate.setAttribute('values', '#B7B4B5;#42CA68;#42CA68;#B7B4B5;');
+            }else if(attr === "#B7B4B5;#42CA68;#42CA68;#B7B4B5;" && warningOnOff == true){
+                rightArrowAnimate.setAttribute('values', '#B7B4B5;#42CA68;#42CA68;#B7B4B5;');
+                leftArrowAnimate.setAttribute('values', '#B7B4B5');
+                warningOnOff = false;
             } else {
                 rightArrowAnimate.setAttribute('values', '#B7B4B5');
             }
