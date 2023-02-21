@@ -164,6 +164,25 @@ button {
   width: 100px;
 }
 
+input {
+  width: 25px;
+  height: 25px;
+  border: none;
+  -webkit-appearence: none;
+  -moz-appearence: none;
+  background: transparent;
+}
+
+input::-webkit-color-swatch {
+  border-radius: 50%;
+  border: none;
+}
+
+input::-moz-color-swatch {
+  border-radius: 15px;
+  border: none;
+}
+
 .container-vehicule-indicator {
   position: absolute;
   bottom: 50px;
