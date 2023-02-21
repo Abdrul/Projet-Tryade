@@ -150,11 +150,10 @@ svg {
 }
 
 #circle-id{
-  opacity: 0.4;
+  opacity: 0.6;
 }
 
 .another-circle {
-  cursor:pointer;
   stroke-dasharray: 125;
   stroke-dashoffset: 125;
   transition: stroke-dashoffset 1000ms ease;

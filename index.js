@@ -2,6 +2,7 @@ const increase = document.querySelectorAll(".increase");
 const decrease = document.querySelectorAll(".decrease");
 
 const circles = document.querySelectorAll(".another-circle");
+const secondCircles = document.querySelectorAll("#circle-id");
 
 increase.forEach((up, index) => {
   up.addEventListener("click", () => {
@@ -24,3 +25,14 @@ decrease.forEach((down, index) => {
     }
   });
 });
+
+const input = document.getElementById("input");
+
+const changeColorAth = () => {
+  const color = input.value;
+  circles.forEach((circle) => {
+    circle.style.stroke = color;
+  });
+};
+
+input.addEventListener("input", changeColorAth);
