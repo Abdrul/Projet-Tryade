@@ -31,6 +31,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
     const containerGazolineEngine = document.querySelector(".gazolineEngine");
     const containerEletricEngine = document.querySelector(".eletricEngine");
 
+    //Change speed unit
+    const changeSpeedUnitButton = document.getElementById("changeSpeedUnit") ;
+
 
 
 
@@ -187,12 +190,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 eletricEngineSVG = document.getElementById("eletricEngineSVG").children;
 
                 for (i = 0; i < gazolineEngineSVG.length; i++) {
+                    gazolineEngineSVG[i].setAttribute("fill", "#FF0000");
                     eletricEngineSVG[i].setAttribute("fill", "#FF0000");
                 }
 
             } else {
 
                 for (i = 0; i < gazolineEngineSVG.length; i++) {
+                    gazolineEngineSVG[i].setAttribute("fill", "#FFFFFF");
                     eletricEngineSVG[i].setAttribute("fill", "#FFFFFF");
                 }
             }
@@ -222,6 +227,18 @@ document.addEventListener("DOMContentLoaded", function (event) {
         containerEletricEngine.classList.toggle("displayNone");
         containerGazolineEngine.classList.toggle("displayNone");
 
+    });
+
+
+    //Change speed unit
+    changeSpeedUnitButton.addEventListener("click", function(){
+        let containerUnitSpeed = document.querySelector(".container-speed div");
+        let valueUnitSpeed = containerUnitSpeed.innerHTML;
+        if(valueUnitSpeed === "KM/H"){
+            containerUnitSpeed.innerHTML = "MPH"
+        }else{
+            containerUnitSpeed.innerHTML = "KM/H"
+        }
     });
 
 
