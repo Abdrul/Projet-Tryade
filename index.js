@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   const engineButton = document.getElementById("engineSignal");
   const seatButton = document.getElementById("seatSignal");
 
+
   //car speedometer
   const speedUpButton = document.getElementById("speedUp");
   const speedDownButton = document.getElementById("speedDown");
@@ -36,9 +37,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
   const rightArrowAnimate = document.getElementById("right-arrow-animate");
   const leftArrowAnimate = document.getElementById("left-arrow-animate");
 
+
+
   function clignotte() {
     value = this.getAttribute("value");
-    if (value === "left" && warningOnOff == false) {
+    if (value === "left") {
       //shutdown the second turn signal
       rightArrowAnimate.setAttribute("values", "#B7B4B5");
 
@@ -56,51 +59,44 @@ document.addEventListener("DOMContentLoaded", function (event) {
       //shutdown the second turn signal
       leftArrowAnimate.setAttribute("values", "#B7B4B5");
 
-    //The turn signals
-    //The animate tags of the left-right directional arrows
-    const rightArrowAnimate = document.getElementById('right-arrow-animate');
-    const leftArrowAnimate = document.getElementById('left-arrow-animate');
-
-    function clignotte() {
-        value = this.getAttribute('value');
-        if (value === "left") {
-            //shutdown the second turn signal
-            rightArrowAnimate.setAttribute('values', '#B7B4B5');
-
-            //Switch on/off
-            var attr = leftArrowAnimate.getAttribute('values');
-            if (attr === "#B7B4B5") {
-                leftArrowAnimate.setAttribute('values', '#B7B4B5;#42CA68;#42CA68;#B7B4B5;');
-            }else if(attr === "#B7B4B5;#42CA68;#42CA68;#B7B4B5;" && warningOnOff == true){
-                leftArrowAnimate.setAttribute('values', '#B7B4B5;#42CA68;#42CA68;#B7B4B5;');
-                rightArrowAnimate.setAttribute('values', '#B7B4B5');
-                warningOnOff = false;
-
-            }else{
-                leftArrowAnimate.setAttribute('values', '#B7B4B5');
-            }
-        }else{
-            //shutdown the second turn signal
-            leftArrowAnimate.setAttribute('values', '#B7B4B5');
-            
-            //Switch on/off
-            var attr = rightArrowAnimate.getAttribute('values');
-            if (attr === "#B7B4B5") {
-                rightArrowAnimate.setAttribute('values', '#B7B4B5;#42CA68;#42CA68;#B7B4B5;');
-            }else if(attr === "#B7B4B5;#42CA68;#42CA68;#B7B4B5;" && warningOnOff == true){
-                rightArrowAnimate.setAttribute('values', '#B7B4B5;#42CA68;#42CA68;#B7B4B5;');
-                leftArrowAnimate.setAttribute('values', '#B7B4B5');
-                warningOnOff = false;
-            } else {
-                rightArrowAnimate.setAttribute('values', '#B7B4B5');
-            }
-        }
+      //Switch on/off
+      var attr = rightArrowAnimate.getAttribute("values");
+      if (attr === "#B7B4B5") {
+        rightArrowAnimate.setAttribute(
+          "values",
+          "#B7B4B5;#42CA68;#42CA68;#B7B4B5;"
+        );
+      } else {
+        rightArrowAnimate.setAttribute("values", "#B7B4B5");
+      }
     }
   }
 
   leftArrowButton.addEventListener("click", clignotte);
   rightArrowButton.addEventListener("click", clignotte);
+  leftArrowButton.addEventListener("click", clignotte);
+  rightArrowButton.addEventListener("click", clignotte);
 
+  //Warnings signal
+  function warning() {
+    var attrL = leftArrowAnimate.getAttribute("values");
+    var attrR = rightArrowAnimate.getAttribute("values");
+    if (attrL === "#B7B4B5" || attrR === "#B7B4B5") {
+      leftArrowAnimate.setAttribute(
+        "values",
+        "#B7B4B5;#42CA68;#42CA68;#B7B4B5;"
+      );
+      rightArrowAnimate.setAttribute(
+        "values",
+        "#B7B4B5;#42CA68;#42CA68;#B7B4B5;"
+      );
+      warningOnOff = true;
+    } else {
+      leftArrowAnimate.setAttribute("values", "#B7B4B5");
+      rightArrowAnimate.setAttribute("values", "#B7B4B5");
+      warningOnOff = false;
+    }
+  }
   //Warnings signal
   function warning() {
     var attrL = leftArrowAnimate.getAttribute("values");
@@ -200,5 +196,5 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
   });
 
-}});
   //End of Car ATH
+});
