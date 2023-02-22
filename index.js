@@ -36,3 +36,12 @@ const changeColorAth = () => {
 };
 
 input.addEventListener("input", changeColorAth);
+
+// const div = document.querySelector(".parameters");
+
+// document.addEventListener("keydown", (event) => {
+//   if (event.key === "r") {
+//     div.style.display = div.style.display === "none" ? "flex" : "none";
+//     // div.classList.toggle("active");
+//   }
+// });
