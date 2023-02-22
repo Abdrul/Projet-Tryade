@@ -26,8 +26,8 @@ decrease.forEach((down, index) => {
 });
 
 /* ************************************ DRAG *************************************** */
-// Sélectionne tous les éléments ayant la classe "draggable"
-const draggableElements = document.querySelectorAll('.draggable');
+// Sélectionne tous les éléments ayant la classe "draggableClick"
+const draggableElements = document.querySelectorAll('.draggableClick');
 
 // Ajoute un écouteur d'événement "mousedown" à chaque élément draggable
 
@@ -36,8 +36,8 @@ draggableElements.forEach((element) => {
 });
 
 function startDrag(event) {
-  // event.preventDefault();
-  // event.stopPropagation();
+  event.preventDefault();
+  event.stopPropagation();
   // Empêche le clic droit de déclencher le drag and drop
   if (event.button !== 0) return;
 
@@ -45,10 +45,6 @@ function startDrag(event) {
   while (!element.classList.contains('draggable')) {
     element = element.parentElement;
   }
-
-  console.log(element);
-  // Définit le style CSS "position: absolute" pour positionner l'élément librement
-  element.style.position = 'absolute';
 
   // Stocke l'élément sélectionné
   let selectedElement = element;
