@@ -183,6 +183,10 @@ h6 {
   align-items: center;
   justify-content: space-between;
 }
+.container-parameters-status div svg {
+  width: 22px;
+  height: 22px;
+}
 
 .container-parameters-status div p {
   font-size: 12px;
@@ -221,7 +225,7 @@ h6 {
   transform: translate(-50%, -50%);
 }
 
-svg {
+.status svg {
   height: 50px;
   width: 50px;
 }
