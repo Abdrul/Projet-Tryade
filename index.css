@@ -279,6 +279,12 @@ h6 {
   justify-content: space-between;
 }
 
+/*Change type of engine*/
+.displayNone{
+  display: none;
+}
+
+
 
 
 

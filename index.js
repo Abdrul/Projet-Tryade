@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function (event) {
     //Car ATH
-    //The car action buttons
     //The car signals
     const leftArrowButton = document.getElementById("leftArrowButton");
     const rightArrowButton = document.getElementById("rightArrowButton");
@@ -12,16 +11,31 @@ document.addEventListener("DOMContentLoaded", function (event) {
     //car speedometer
     const speedUpButton = document.getElementById("speedUp");
     const speedDownButton = document.getElementById("speedDown");
+    const containerSpeed = document.querySelector(".container-speed p");
+
 
     //Gazoline
     const gazolineUpButton = document.getElementById("gazolineUp");
     const gazolineDownButton = document.getElementById("gazolineDown");
+    const containerGazoline = document.querySelector(".container-img-pourcent p");
+
 
     //Gearbox
     const gearboxUpButton = document.getElementById("gearboxUp");
     const gearboxDownButton = document.getElementById("gearboxDown");
+    const containerGearbox = document.querySelector(".container-info-lever-gear p");
 
-    //general variables
+    //Engine type
+    const changeEngineTypeButton = document.getElementById("changeEngineType");
+    //Div SVG engine type
+    const containerGazolineEngine = document.querySelector(".gazolineEngine");
+    const containerEletricEngine = document.querySelector(".eletricEngine");
+
+
+
+
+    //General variables
+
     //Warning on/off ?
     var warningOnOff = false;
     //speed variable
@@ -38,6 +52,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
+    //
     function clignotte() {
         value = this.getAttribute("value");
         if (value === "left") {
@@ -46,29 +61,27 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
             //Switch on/off
             var attr = leftArrowAnimate.getAttribute("values");
-            if (attr === "#B7B4B5"|| warningOnOff === true) {
-                leftArrowAnimate.setAttribute("values","#B7B4B5;#42CA68;#42CA68;#B7B4B5;");
+            if (attr === "#B7B4B5" || warningOnOff === true) {
+                leftArrowAnimate.setAttribute("values", "#B7B4B5;#42CA68;#42CA68;#B7B4B5;");
                 warningOnOff = false;
             } else {
                 leftArrowAnimate.setAttribute("values", "#B7B4B5");
             }
-        }else{
+        } else {
             //shutdown the second turn signal
             leftArrowAnimate.setAttribute("values", "#B7B4B5");
 
-             //Switch on/off
-             var attr = rightArrowAnimate.getAttribute("values");
-             if (attr === "#B7B4B5"|| warningOnOff === true) {
-                 rightArrowAnimate.setAttribute("values","#B7B4B5;#42CA68;#42CA68;#B7B4B5;");
-                 warningOnOff = false;
-             } else {
-                 rightArrowAnimate.setAttribute("values", "#B7B4B5");
-             }
+            //Switch on/off
+            var attr = rightArrowAnimate.getAttribute("values");
+            if (attr === "#B7B4B5" || warningOnOff === true) {
+                rightArrowAnimate.setAttribute("values", "#B7B4B5;#42CA68;#42CA68;#B7B4B5;");
+                warningOnOff = false;
+            } else {
+                rightArrowAnimate.setAttribute("values", "#B7B4B5");
+            }
         }
     }
 
-    leftArrowButton.addEventListener("click", clignotte);
-    rightArrowButton.addEventListener("click", clignotte);
     leftArrowButton.addEventListener("click", clignotte);
     rightArrowButton.addEventListener("click", clignotte);
 
@@ -95,6 +108,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     warningButton.addEventListener("click", warning);
 
+
     //The light, engine and seat signals
     function onOff() {
         value = this.getAttribute("value");
@@ -117,10 +131,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
     engineButton.addEventListener("click", onOff);
     seatButton.addEventListener("click", onOff);
 
-    //Car speed up or speed down
-    const containerSpeed = document.querySelector(".container-speed p");
-    containerSpeed.innerHTML = speed;
 
+    //Car speed up or speed down
+    containerSpeed.innerHTML = speed;
     speedUpButton.addEventListener("click", function () {
         speed++;
         containerSpeed.textContent = speed;
@@ -133,14 +146,32 @@ document.addEventListener("DOMContentLoaded", function (event) {
         }
     });
 
-    //The level of gasoline
-    const containerGazoline = document.querySelector(".container-img-pourcent p");
-    containerGazoline.innerHTML = lvlGazoline + "%";
 
+    //The level of gasoline
+    containerGazoline.innerHTML = lvlGazoline + "%";
     gazolineUpButton.addEventListener("click", function () {
         if (lvlGazoline < 100) {
             lvlGazoline++;
             containerGazoline.textContent = lvlGazoline + "%";
+
+            //Condition voyant rouge
+            if (lvlGazoline < 11) {
+
+                gazolineEngineSVG = document.getElementById("gazolineEngineSVG").children;
+                eletricEngineSVG = document.getElementById("eletricEngineSVG").children;
+
+                for (i = 0; i < gazolineEngineSVG.length; i++) {
+                    gazolineEngineSVG[i].setAttribute("fill", "#FF0000");
+                    eletricEngineSVG[i].setAttribute("fill", "#FF0000");
+                }
+
+            } else {
+
+                for (i = 0; i < gazolineEngineSVG.length; i++) {
+                    gazolineEngineSVG[i].setAttribute("fill", "#FFFFFF");
+                    eletricEngineSVG[i].setAttribute("fill", "#FFFFFF");
+                }
+            }
         }
     });
 
@@ -148,28 +179,53 @@ document.addEventListener("DOMContentLoaded", function (event) {
         if (lvlGazoline >= 1) {
             lvlGazoline--;
             containerGazoline.textContent = lvlGazoline + "%";
+
+            //Condition voyant rouge
+            if (lvlGazoline < 11) {
+
+                gazolineEngineSVG = document.getElementById("gazolineEngineSVG").children;
+                eletricEngineSVG = document.getElementById("eletricEngineSVG").children;
+
+                for (i = 0; i < gazolineEngineSVG.length; i++) {
+                    eletricEngineSVG[i].setAttribute("fill", "#FF0000");
+                }
+
+            } else {
+
+                for (i = 0; i < gazolineEngineSVG.length; i++) {
+                    eletricEngineSVG[i].setAttribute("fill", "#FFFFFF");
+                }
+            }
         }
     });
 
-    //The gearbox
-    const containerGearbox = document.querySelector(
-        ".container-info-lever-gear p"
-    );
-    containerGearbox.innerHTML = lvlGearbox;
 
+    //The gearbox
+    containerGearbox.innerHTML = lvlGearbox;
     gearboxUpButton.addEventListener("click", function () {
         if (lvlGearbox < 6) {
             lvlGearbox++;
             containerGearbox.textContent = lvlGearbox;
         }
     });
-
     gearboxDownButton.addEventListener("click", function () {
         if (lvlGearbox >= 1) {
             lvlGearbox--;
             containerGearbox.textContent = lvlGearbox;
         }
     });
+
+
+    //Change engine type
+    changeEngineTypeButton.addEventListener("click", function () {
+
+        containerEletricEngine.classList.toggle("displayNone");
+        containerGazolineEngine.classList.toggle("displayNone");
+
+    });
+
+
+
 
     //End of Car ATH
 });
