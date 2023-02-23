@@ -350,6 +350,10 @@ input[type="color"] {
   position: absolute;
 }
 
+.close-status-parameters {
+  display: none;
+}
+
 .draggableClick {
   cursor: grab;
 }

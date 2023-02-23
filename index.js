@@ -26,27 +26,28 @@ decrease.forEach((down, index) => {
   });
 });
 
-const div = document.querySelector(".parameters");
-let test = getComputedStyle(div);
+const parameterModal = document.querySelector(".parameters");
+let test = getComputedStyle(parameterModal);
 
 document.addEventListener("keydown", (event) => {
   if (event.key === "r") {
     test.display === "none"
-      ? div.style.setProperty("display", "block")
-      : div.style.setProperty("display", "none");
+      ? parameterModal.style.setProperty("display", "block")
+      : parameterModal.style.setProperty("display", "none");
   }
 });
 
 const buttonCloseParameters = document.querySelector(".close-parameters");
 
 buttonCloseParameters.addEventListener("click", () => {
-  div.style.setProperty("display", "none");
+  parameterModal.style.setProperty("display", "none");
 });
 
 const toggleHeart = document.getElementById("toggle-heart");
 const toggleFood = document.getElementById("toggle-food");
 const toggleShield = document.getElementById("toggle-shield");
 const toggleThirst = document.getElementById("toggle-thirst");
+
 const heartContainer = document.querySelector(".heartContainer");
 const foodContainer = document.querySelector(".foodContainer");
 const shieldContainer = document.querySelector(".shieldContainer");
@@ -65,11 +66,7 @@ statusArray.push(
 
 toggleArray.forEach((toggle, index) => {
   toggle.addEventListener("change", () => {
-    if (toggle.checked) {
-      statusArray[index].style.setProperty("display", "none");
-    } else {
-      statusArray[index].style.setProperty("display", "block");
-    }
+    statusArray[index].classList.toggle("close-status-parameters");
   });
 });
 
