@@ -13,47 +13,72 @@
         <div class="container-display-status">
           <div class="header-container">
             <h2>Paramètres</h2>
-            <span>X</span>
+            <span class="close-parameters">X</span>
           </div>
           <p class="title-display">Affichage</p>
           <div class="container-parameters-status">
             <div>
-              <div class="test">
+              <div class="wrapper-img">
                 <img src="./assets/heart_parameters.svg" alt="coeur" />
               </div>
               <p>Niveau de santé</p>
-              <input type="checkbox" />
+              <input type="checkbox" id="toggle-heart" />
+              <label class="label-status" for="toggle-heart"></label>
             </div>
             <div>
-              <div class="test">
+              <div class="wrapper-img">
                 <img src="./assets/shield_parameter.svg" alt="" />
               </div>
               <p>Niveau de protection</p>
-              <input type="checkbox" />
+              <input type="checkbox" id="toggle-shield" />
+              <label class="label-status" for="toggle-shield"></label>
             </div>
             <div>
-              <div class="test">
+              <div class="wrapper-img">
                 <img src="./assets/food_parameter.svg" alt="" />
               </div>
               <p>Niveau de faim</p>
-              <input type="checkbox" />
+              <input type="checkbox" id="toggle-food" />
+              <label class="label-status" for="toggle-food"></label>
             </div>
             <div>
-              <div class="test">
+              <div class="wrapper-img">
                 <img src="./assets/water_parameter.svg" alt="" />
               </div>
               <p>Niveau de soif</p>
-              <input type="checkbox" />
+              <input type="checkbox" id="toggle-thirst" />
+              <label class="label-status" for="toggle-thirst"></label>
             </div>
           </div>
+          <p class="title-color">Couleurs</p>
+          <div class="container-color">
+            <div class="choice-color red"></div>
+            <div class="choice-color yellow"></div>
+            <div class="choice-color green"></div>
+            <div class="choice-color blue"></div>
+            <div class="choice-color violet"></div>
+            <div class="personnalisation-color">
+              <span>Personnaliser</span>
+              <div>
+                <label for="color" class="label-color"
+                  ><img src="./assets/personalisation-color.svg" alt=""
+                /></label>
+                <input id="color" type="color" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container-button">
+          <button>Repositionner</button>
+          <button>Valider</button>
         </div>
 
         <!-- <div class="container-button-validation">
           <p>salut</p>
         </div> -->
       </div>
-      <div class="container-status">
-        <div class="status">
+      <div class="heartContainer draggable">
+        <div class="status draggableClick">
           <svg>
             <circle
               id="circle-id"
@@ -71,7 +96,6 @@
               cy="25"
               r="20"
               id="circle1"
-              stroke="#11B826"
               stroke-width="6"
               fill="transparent"
               transform="rotate(-90 50 50)"
@@ -80,13 +104,14 @@
           </svg>
           <img src="./assets/heart.svg" alt="img_coeur" />
         </div>
-        <div>
+        <div class="increase-decrease-container">
           <button class="increase">Augmenter</button>
           <button class="decrease">Diminuer</button>
-          <input type="color" id="input" value="#11B826" />
+          <!-- <input type="color" id="input" value="#11B826" /> -->
         </div>
-
-        <div class="status">
+      </div>
+      <div class="foodContainer draggable">
+        <div class="status draggableClick">
           <svg>
             <circle
               id="circle-id"
@@ -104,7 +129,6 @@
               cy="25"
               r="20"
               id="circle1"
-              stroke="#11B826"
               stroke-width="6"
               fill="transparent"
               transform="rotate(-90 50 50)"
@@ -113,11 +137,13 @@
           </svg>
           <img src="./assets/food.svg" alt="img_coeur" />
         </div>
-        <div>
+        <div class="increase-decrease-container">
           <button class="increase">Augmenter</button>
           <button class="decrease">Diminuer</button>
         </div>
-        <div class="status">
+      </div>
+      <div class="shieldContainer draggable">
+        <div class="status draggableClick">
           <svg>
             <circle
               id="circle-id"
@@ -135,7 +161,6 @@
               cy="25"
               r="20"
               id="circle1"
-              stroke="#11B826"
               stroke-width="6"
               fill="transparent"
               transform="rotate(-90 50 50)"
@@ -144,11 +169,13 @@
           </svg>
           <img src="./assets/shield.svg" alt="img_coeur" />
         </div>
-        <div>
+        <div class="increase-decrease-container">
           <button class="increase">Augmenter</button>
           <button class="decrease">Diminuer</button>
         </div>
-        <div class="status">
+      </div>
+      <div class="thirstContainer draggable">
+        <div class="status draggableClick">
           <svg>
             <circle
               id="circle-id"
@@ -166,7 +193,6 @@
               cy="25"
               r="20"
               id="circle1"
-              stroke="#11B826"
               stroke-width="6"
               fill="transparent"
               transform="rotate(-90 50 50)"
@@ -175,7 +201,7 @@
           </svg>
           <img src="./assets/thirst.svg" alt="img_coeur" />
         </div>
-        <div>
+        <div class="increase-decrease-container">
           <button class="increase">Augmenter</button>
           <button class="decrease">Diminuer</button>
         </div>
