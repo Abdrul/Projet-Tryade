@@ -22,7 +22,11 @@
                 <img src="./assets/heart_parameters.svg" alt="coeur" />
               </div>
               <p>Niveau de santé</p>
-              <input type="checkbox" id="toggle-heart" />
+              <input
+                type="checkbox"
+                id="toggle-heart"
+                class="input-change-display"
+              />
               <label class="label-status" for="toggle-heart"></label>
             </div>
             <div>
@@ -30,7 +34,11 @@
                 <img src="./assets/shield_parameter.svg" alt="" />
               </div>
               <p>Niveau de protection</p>
-              <input type="checkbox" id="toggle-shield" />
+              <input
+                type="checkbox"
+                id="toggle-shield"
+                class="input-change-display"
+              />
               <label class="label-status" for="toggle-shield"></label>
             </div>
             <div>
@@ -38,7 +46,11 @@
                 <img src="./assets/food_parameter.svg" alt="" />
               </div>
               <p>Niveau de faim</p>
-              <input type="checkbox" id="toggle-food" />
+              <input
+                type="checkbox"
+                id="toggle-food"
+                class="input-change-display"
+              />
               <label class="label-status" for="toggle-food"></label>
             </div>
             <div>
@@ -46,7 +58,11 @@
                 <img src="./assets/water_parameter.svg" alt="" />
               </div>
               <p>Niveau de soif</p>
-              <input type="checkbox" id="toggle-thirst" />
+              <input
+                type="checkbox"
+                id="toggle-thirst"
+                class="input-change-display"
+              />
               <label class="label-status" for="toggle-thirst"></label>
             </div>
           </div>
@@ -70,14 +86,10 @@
         </div>
         <div class="container-button">
           <button>Repositionner</button>
-          <button>Valider</button>
+          <button class="submit-form">Valider</button>
         </div>
-
-        <!-- <div class="container-button-validation">
-          <p>salut</p>
-        </div> -->
       </div>
-      <div class="heartContainer draggable">
+      <div class="heartContainer draggable bar-of-life">
         <div class="status draggableClick">
           <svg>
             <circle
@@ -107,42 +119,10 @@
         <div class="increase-decrease-container">
           <button class="increase">Augmenter</button>
           <button class="decrease">Diminuer</button>
-          <!-- <input type="color" id="input" value="#11B826" /> -->
         </div>
       </div>
-      <div class="foodContainer draggable">
-        <div class="status draggableClick">
-          <svg>
-            <circle
-              id="circle-id"
-              cx="75"
-              cy="25"
-              r="20"
-              stroke="#FFFFFF"
-              stroke-width="6"
-              fill="transparent"
-              transform="rotate(-90 50 50)"
-            />
-            <circle
-              class="another-circle"
-              cx="75"
-              cy="25"
-              r="20"
-              id="circle1"
-              stroke-width="6"
-              fill="transparent"
-              transform="rotate(-90 50 50)"
-              data-stroke="125"
-            />
-          </svg>
-          <img src="./assets/food.svg" alt="img_coeur" />
-        </div>
-        <div class="increase-decrease-container">
-          <button class="increase">Augmenter</button>
-          <button class="decrease">Diminuer</button>
-        </div>
-      </div>
-      <div class="shieldContainer draggable">
+
+      <div class="shieldContainer draggable bar-of-life">
         <div class="status draggableClick">
           <svg>
             <circle
@@ -174,7 +154,40 @@
           <button class="decrease">Diminuer</button>
         </div>
       </div>
-      <div class="thirstContainer draggable">
+
+      <div class="foodContainer draggable bar-of-life">
+        <div class="status draggableClick">
+          <svg>
+            <circle
+              id="circle-id"
+              cx="75"
+              cy="25"
+              r="20"
+              stroke="#FFFFFF"
+              stroke-width="6"
+              fill="transparent"
+              transform="rotate(-90 50 50)"
+            />
+            <circle
+              class="another-circle"
+              cx="75"
+              cy="25"
+              r="20"
+              id="circle1"
+              stroke-width="6"
+              fill="transparent"
+              transform="rotate(-90 50 50)"
+              data-stroke="125"
+            />
+          </svg>
+          <img src="./assets/food.svg" alt="img_coeur" />
+        </div>
+        <div class="increase-decrease-container">
+          <button class="increase">Augmenter</button>
+          <button class="decrease">Diminuer</button>
+        </div>
+      </div>
+      <div class="thirstContainer draggable bar-of-life">
         <div class="status draggableClick">
           <svg>
             <circle

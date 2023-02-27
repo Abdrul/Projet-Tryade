@@ -1,3 +1,5 @@
+// Partie Augmentation et Diminution barre de vie
+
 const increase = document.querySelectorAll(".increase");
 const decrease = document.querySelectorAll(".decrease");
 
@@ -26,6 +28,8 @@ decrease.forEach((down, index) => {
   });
 });
 
+// Partie des parametres
+
 const parameterModal = document.querySelector(".parameters");
 let test = getComputedStyle(parameterModal);
 
@@ -43,30 +47,14 @@ buttonCloseParameters.addEventListener("click", () => {
   parameterModal.style.setProperty("display", "none");
 });
 
-const toggleHeart = document.getElementById("toggle-heart");
-const toggleFood = document.getElementById("toggle-food");
-const toggleShield = document.getElementById("toggle-shield");
-const toggleThirst = document.getElementById("toggle-thirst");
+// Partie modification des parametres
 
-const heartContainer = document.querySelector(".heartContainer");
-const foodContainer = document.querySelector(".foodContainer");
-const shieldContainer = document.querySelector(".shieldContainer");
-const thirstContainer = document.querySelector(".thirstContainer");
+const toggleDisplayStatus = document.querySelectorAll(".input-change-display");
+const barOfLife = document.querySelectorAll(".bar-of-life");
 
-const toggleArray = [];
-toggleArray.push(toggleHeart, toggleFood, toggleShield, toggleThirst);
-
-const statusArray = [];
-statusArray.push(
-  heartContainer,
-  foodContainer,
-  shieldContainer,
-  thirstContainer
-);
-
-toggleArray.forEach((toggle, index) => {
+toggleDisplayStatus.forEach((toggle, index) => {
   toggle.addEventListener("change", () => {
-    statusArray[index].classList.toggle("close-status-parameters");
+    barOfLife[index].classList.toggle("close-status-parameters");
   });
 });
 
@@ -97,6 +85,8 @@ const changeColorAth = () => {
 };
 
 inputColor.addEventListener("input", changeColorAth);
+
+const buttonSubmit = document.querySelector(".submit-form");
 
 /* ************************************ DRAG *************************************** */
 // Sélectionne tous les éléments ayant la classe "draggableClick"
