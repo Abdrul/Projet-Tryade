@@ -348,11 +348,11 @@ input[type="color"] {
 
 .draggable {
   position: absolute;
-  display: none;
+  display: block;
 }
 
 .close-status-parameters {
-  display: block;
+  display: none;
 }
 
 .draggableClick {
