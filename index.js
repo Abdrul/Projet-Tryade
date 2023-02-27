@@ -1,3 +1,4 @@
+
 // Partie Augmentation et Diminution barre de vie
 
 const increase = document.querySelectorAll(".increase");
@@ -154,3 +155,4 @@ function startDrag(event) {
     window.removeEventListener("mousemove", dragElement);
   });
 }
+

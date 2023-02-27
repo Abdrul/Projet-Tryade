@@ -120,6 +120,7 @@ h6 {
       format("woff");
 }
 
+
 .main {
   background: url(./assets//GTAVPC_7\ 1.png);
   width: 100%;
@@ -425,3 +426,4 @@ input[type="color"] {
   cursor: pointer;
   width: 100px;
 }
+
