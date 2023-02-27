@@ -1,3 +1,4 @@
+
 // Partie Augmentation et Diminution barre de vie
 
 const increase = document.querySelectorAll(".increase");
@@ -389,3 +390,4 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
   //End of Car ATH
 });
+
